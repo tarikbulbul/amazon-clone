@@ -4,6 +4,7 @@ import { NumericFormat} from 'react-number-format';
 import { useStateValue } from "../../StateProvider";
 import { getBasketTotal } from "../../reducer";
 import { useNavigate } from 'react-router-dom';
+
 function Subtotal() {
   const navigate = useNavigate();
   const [{ basket, dispatch}] = useStateValue();
@@ -21,7 +22,8 @@ function Subtotal() {
             </small>
           </>
         )}
-        displayType="text" 
+        displayType="text"
+        decimalScale={2}
         value={getBasketTotal(basket)}
         thousandSeparator={true}
         prefix={"$"}
